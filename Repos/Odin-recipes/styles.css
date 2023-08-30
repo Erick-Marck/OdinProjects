@@ -1,0 +1,13 @@
+h1, h2 {
+    color: purple;
+    font-family: 'Courier New', Courier, monospace;
+}
+h2 {
+    font-weight: lighter;
+}
+ul, ol, p{
+    color: palevioletred;
+}
+p{
+    font-weight: bold;
+}

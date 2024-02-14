@@ -1,4 +1,6 @@
 const options = ['Rock', 'Paper' , 'Scissors'];
+let cont_pc = 0;
+let cont_user = 0;
 function getComputerChoice(){
     return options[(Math.floor(Math.random() * 3))];  
 }
@@ -11,31 +13,44 @@ function playRound(playerSelection, computerSelection) {
     if (existingContent) {
         existingContent.remove();
     }
-    if (playerSelection == computerSelection){
+    if (cont_pc === 5){
+        content.textContent = "PC Won 5 times";
+        console.log(cont_pc);
+    }
+    else if (cont_user === 5){
+        content.textContent = "you Won 5 times";
+    }
+    else if (playerSelection == computerSelection){
         content.textContent = "It's a draw";
     }
-    if (playerSelection=='Rock'){
+    else if (playerSelection=='Rock'){
         if (computerSelection=='Paper'){
             content.textContent = "You lost!";
+            cont_pc++;
         }
         else if (computerSelection=='Scissors'){
             content.textContent = "You won!";
+            cont_user++;
         }
     }
     else if (playerSelection=='Paper'){
         if (computerSelection=='Rock'){
             content.textContent = "You won!";
+            cont_user++;
         }
         else if (computerSelection=='Scissors'){
             content.textContent = "You lost!";
+            cont_pc++;
         }
     }
     else if (playerSelection=='Scissors'){
         if (computerSelection=='Paper'){
             content.textContent = "You won!";
+            cont_user++;
         }
         else if (computerSelection=='Rock'){
             content.textContent = "You lost!";
+            cont_pc++;
         }
     }
     document.getElementById("content").appendChild(content);

@@ -31,13 +31,29 @@ function playRound(playerSelection, computerSelection) {
             console.log("You lost!");
         }
     }
-  }
-let rounds = prompt("how many times do you want to play?")
-for (let index = 0; index < rounds; index++) {
-    const playerSelection = options[prompt("Rock[0] Paper[1] Scissors[2]")];
+}
+
+function choses(playerSelection){
     const computerSelection = getComputerChoice();
     console.log("You chose: "+playerSelection);
     console.log("The pc chose: "+ computerSelection);
     console.log(playRound(playerSelection, computerSelection));
 }
-    
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    const playerSelection = options[0];
+    choses(playerSelection)
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    const playerSelection = options[1];
+    choses(playerSelection)
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    const playerSelection = options[2];
+    choses(playerSelection)
+});

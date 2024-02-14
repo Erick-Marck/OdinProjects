@@ -4,40 +4,48 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection) {
+    const content = document.createElement("h1");
+    content.classList.add("content");
+    const existingContent = document.querySelector(".content");
+    
+    if (existingContent) {
+        existingContent.remove();
+    }
     if (playerSelection == computerSelection){
-        console.log("It's a draw");
+        content.textContent = "It's a draw";
     }
     if (playerSelection=='Rock'){
         if (computerSelection=='Paper'){
-            console.log("You lost!");
+            content.textContent = "You lost!";
         }
         else if (computerSelection=='Scissors'){
-            console.log("You won!");
+            content.textContent = "You won!";
         }
     }
     else if (playerSelection=='Paper'){
         if (computerSelection=='Rock'){
-            console.log("You won!");
+            content.textContent = "You won!";
         }
         else if (computerSelection=='Scissors'){
-            console.log("You lost!");
+            content.textContent = "You lost!";
         }
     }
     else if (playerSelection=='Scissors'){
         if (computerSelection=='Paper'){
-            console.log("You won!");
+            content.textContent = "You won!";
         }
         else if (computerSelection=='Rock'){
-            console.log("You lost!");
+            content.textContent = "You lost!";
         }
     }
+    document.getElementById("content").appendChild(content);
 }
 
 function choses(playerSelection){
     const computerSelection = getComputerChoice();
     console.log("You chose: "+playerSelection);
     console.log("The pc chose: "+ computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    playRound(playerSelection, computerSelection);
 }
 
 const rock = document.querySelector('#rock');
